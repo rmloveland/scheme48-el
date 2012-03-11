@@ -305,19 +305,23 @@ been loaded."
   (interactive)
   (scheme48-send-region (save-excursion (backward-sexp) (point)) (point)))
 
+(defun scheme48-switch-to-repl ()
+  (unless (eq scheme-buffer (current-buffer))
+    (switch-to-buffer-other-window scheme-buffer)))
+
 (defun scheme48-send-region-and-go (start end)
   "Send the current region to the inferior Scheme48 process,
 and switch to the process buffer."
   (interactive "r")
   (scheme48-send-region start end)
-  (switch-to-scheme t))
+  (scheme48-switch-to-repl))
 
 (defun scheme48-send-definition-and-go ()
   "Send the current definition to the inferior Scheme48,
 and switch to the process buffer."
   (interactive)
   (scheme48-send-definition)
-  (switch-to-scheme t))
+  (scheme48-switch-to-repl))
 
 (defun scheme48-load-file (file-name)
   "Load a Scheme file into the inferior Scheme48 process."
