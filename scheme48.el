@@ -306,6 +306,7 @@ been loaded."
   (scheme48-send-region (save-excursion (backward-sexp) (point)) (point)))
 
 (defun scheme48-switch-to-repl ()
+  "Switch to the Scheme process buffer in the other window; open it, if necessary."
   (unless (eq scheme-buffer (current-buffer))
     (switch-to-buffer-other-window scheme-buffer)))
 
