@@ -307,6 +307,7 @@ been loaded."
 
 (defun scheme48-switch-to-repl ()
   "Switch to the Scheme process buffer in the other window; open it, if necessary."
+  (interactive)
   (unless (eq scheme-buffer (current-buffer))
     (switch-to-buffer-other-window scheme-buffer)))
 
@@ -321,8 +322,8 @@ and switch to the process buffer."
   "Send the current definition to the inferior Scheme48,
 and switch to the process buffer."
   (interactive)
-  (scheme48-send-definition)
-  (scheme48-switch-to-repl))
+  (progn (scheme48-send-definition)
+	 (scheme48-switch-to-repl)))
 
 (defun scheme48-load-file (file-name)
   "Load a Scheme file into the inferior Scheme48 process."
