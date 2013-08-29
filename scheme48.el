@@ -185,6 +185,7 @@ non-nil."
     (define-key map "\C-c\C-r" 'scheme48-send-region)
     (define-key map "\C-c\M-r" 'scheme48-send-region-and-go)
     (define-key map "\C-c\C-l" 'scheme48-load-file)
+    (define-key map "\C-c\C-z" 'scheme48-switch-to-repl)
     (when scheme48-compatibility-bindings-p
       (define-key map "\C-ce"    'scheme48-send-definition)
       (define-key map "\C-c\C-e" 'scheme48-send-definition-and-go)
